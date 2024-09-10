@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+    border: none;
+    outline: none;
+}
+
+:root {
+    --bg-color: #1976d2;
+    --text-color: #333;
+    --main-color: #754ef9;
+    --white-color: #fdfdfd;
+    --shadow-color: #rgba(0, 0, 0, .2);
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: rgb(14 13 13);
+    color: var(--text-color);
+}
+
+.navbar-bg {
+    position: sticky;
+    top: 0;
+    z-index: 70;
+    background-color: rgb(14 13 13);
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--white-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+}
+
+.navbar a,
+.mobile-navbar a {
+    font-size: 14px;
+    color: var(--white-color);
+    font-weight: 500;
+    margin-right: 10px;
+    position: relative;
+}
+
+.navbar a::before {
+    content: '';
+    background-color: var(--bg-color);
+    width: 0px;
+    position: absolute;
+    height: 2px;
+    bottom: 0px;
+    left: 0;
+    transition: width 0.5s ease;
+}
+
+.navbar a:hover::before,
+.navbar a.active::before {
+    width: 100%;
+}
+
+
+.navbar a.active {
+    color: var(--bg-color);
+}
+
+.navbar-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.navbar-main .common-color {
+    color: var(--bg-color);
+}
+
+.menu-icon {
+    color: white;
+    font-size: 33px !important;
+    display: none !important;
+    cursor: pointer;
+    position: relative;
+}
+
+.mobile-main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #181515;
+    z-index: 100;
+    width: 320px;
+    padding: 10px 15px;
+    height: 350px;
+    border-radius: 5px;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.mobile-main.slide-in {
+    animation-name: slideIn;
+    position: fixed;
+}
+
+.mobile-main.slide-out {
+    animation-name: slideOut;
+}
+
+.mobile-navbar {
+    display: inline-grid;
+    row-gap: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+.mobile-navbar a:hover {
+    color: #1976d2;
+    transition: all 0.3s ease;
+}
+
+.close-icon {
+    display: flex;
+    justify-content: end;
+    color: white;
+    cursor: pointer;
+}
+
+.mobile-resume-btn {
+    text-align: center;
+    margin-top: 22px;
+}
+
+/* Navbar Responsive */
+@media (max-width: 1156px) {
+    .navbar {
+        gap: 8px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .mobile-main {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .menu-icon {
+        display: block !important;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .resume-btn {
+        display: none !important;
+    }
+}
+
+@media (max-width: 330px) {
+    .logo {
+        font-size: 19px;
+    }
+
+    .menu-icon {
+        font-size: 30px !important;
+    }
+}
+
+/* key frame */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
